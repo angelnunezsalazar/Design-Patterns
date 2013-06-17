@@ -1,8 +1,6 @@
 SCRIPT
 --------
-- Entregar y analizar el problema.
-- Responder la pregunta del problema de diseño.
-- Identificar el patron de diseño que resuelve su problema.
+
 - Identificar la categoría a la cuál pertenecen.
 
 
@@ -36,6 +34,10 @@ STRATEGY
 -------
 - Diferencia con Strategy
 
+STATE
+-------
+- No tiene implementación en .NET
+
 TEMPLATE METHOD
 ---------------
 - Ejemplo de uso en el .NET Framework (Arrays)
@@ -51,14 +53,13 @@ Extras de código al problema
 - Observer: Pantalla HeatIndex, Decorator using Framework
 - Decorator: Sizes, Extender el Decorator de la Framework
 - Template Method: Hook
-Buscar una implementación dentro de la framework que use el patrón
 Que problemas trae el patrón
 - Decorator: difícil de enteder inmediamente, crear el objecto es un poco difícil.
 - Strategy: incremento en el número de clases
 Qué patrones se combina
 - Decorator: Builder,Factory
-Que categoría pertenece (global o por grupo) 627
 Ejercicios varios:
 - Diferencia entre State, Strategy y Template (336)
 Implementaciónes builtint .NET
 http://msdn.microsoft.com/en-us/magazine/cc188707.aspx#S8
+Cómo el patron hace uso del principio (113)
