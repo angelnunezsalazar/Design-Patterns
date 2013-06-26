@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<products>
+  <product id="1" name="IPod Nano" unitPrice="129.55" discontinued="false"/>
+  <product id="2" name="IPod Touch" unitPrice="259.10" discontinued="false"/>
+  <product id="3" name="IPod" unitPrice="78.95" discontinued="true"/>
+</products>

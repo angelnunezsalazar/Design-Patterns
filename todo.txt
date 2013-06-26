@@ -63,3 +63,9 @@ Ejercicios varios:
 Implementaciónes builtint .NET
 http://msdn.microsoft.com/en-us/magazine/cc188707.aspx#S8
 Cómo el patron hace uso del principio (113)
+
+
+UNITOFWORK
+http://www.yagoperez.com/Post/GetPostByCode/el_patron_unit_of_work_con_entity_framework_code_first
+http://www.yagoperez.com/Post/GetPostByCode/el_patron_repositorio_con_entity_framework_code_first
+http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
