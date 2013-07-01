@@ -1,0 +1,28 @@
+﻿@model HomeBanking.Web.Commands.TransferMoneyCommand
+@{
+    ViewBag.Title = "TransferMoney";
+}
+
+<h2>Transfer Money</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        From Account:
+        <input type="text" name="FromAccountId" />
+    </div>
+    <div>
+        To Account:
+        <input type="text" name="ToAccountId" />
+    </div>
+    <div>
+        Amount:
+        <input type="text" name="Amount" />
+    </div>
+    <div>
+        <input type="hidden" name="CustomerId" value="1" />
+        <input type="submit" name="Accept" value="Accept" />
+    </div>
+}
+
+

@@ -14,7 +14,7 @@
             ProductFilter filter = new ProductFilter();
             IList<Product> products = this.BuildProducts();
 
-            var result = filter.ByColor(products, ProductColor.Blue);
+            var result = filter.FilterBy(products, new ColorSpecification(ProductColor.Blue));
 
             Assert.That(result.Count(), Is.EqualTo(2));
             Assert.That(result, Has.All.Matches<Product>(x => x.Color == ProductColor.Blue));
@@ -26,7 +26,7 @@
             ProductFilter filter = new ProductFilter();
             IList<Product> products = this.BuildProducts();
 
-            var result = filter.BySize(products,  ProductSize.Small);
+            var result = filter.FilterBy(products, new SizeSpecification(ProductSize.Small));
 
             Assert.That(result.Count(), Is.EqualTo(2));
             Assert.That(result, Has.All.Matches<Product>(x => x.Size == ProductSize.Small));
@@ -38,7 +38,7 @@
             ProductFilter filter = new ProductFilter();
             IList<Product> products = this.BuildProducts();
 
-            var result = filter.ByColorAndSize(products, ProductColor.Blue, ProductSize.Small);
+            var result = filter.FilterBy(products, new ColorAndSizeSpecification(ProductColor.Blue, ProductSize.Small));
 
             Assert.That(result.Count(), Is.EqualTo(1));
             Assert.That(result, Has.All.Matches<Product>(x => x.Size == ProductSize.Small));

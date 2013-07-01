@@ -1,0 +1,20 @@
+﻿@model HomeBanking.Web.Models.Customer
+@{
+    ViewBag.Title = "Update Address";
+}
+
+<h2>Update Address</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        Address:
+        @Html.TextBoxFor(x => x.Address)
+        @Html.ValidationMessageFor(x => x.Address)
+    </div>
+    <div>
+        <input type="hidden" name="CustomerId" value="1" />        
+        <input type="submit" name="Accept" value="Update" />
+    </div>
+}
+

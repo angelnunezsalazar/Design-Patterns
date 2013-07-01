@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorSpecification.cs" />
     <Compile Include="ProductFilter.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Color.cs" />

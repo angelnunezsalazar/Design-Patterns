@@ -1,0 +1,20 @@
+﻿@model HomeBanking.Web.Models.Customer
+@{
+    ViewBag.Title = "Update Email";
+}
+
+<h2>Update Email</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        Email:
+        @Html.TextBoxFor(x => x.Email)
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    <div>
+        <input type="hidden" name="CustomerId" value="1" />        
+        <input type="submit" name="Accept" value="Update" />
+    </div>
+}
+
