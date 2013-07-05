@@ -1,5 +1,6 @@
 ﻿namespace HomeBanking.Web.Controllers
 {
+    using System;
     using System.Web.Mvc;
 
     using HomeBanking.Web.Commands;
@@ -8,9 +9,21 @@
     using HomeBanking.Web.Models;
     using HomeBanking.Web.Models.Exceptions;
 
+    using StructureMap;
+
     public class OperationsController : Controller
     {
-        private AccountRepository accountRepository = new AccountRepository();
+        private readonly AppDbContext appDbContext;
+
+        private IAccountRepository accounts;
+
+        private readonly ICustomerRepository customerRepository;
+
+        public OperationsController(IAccountRepository accountRepository)
+        {
+            this.accounts = accountRepository;
+            this.customerRepository = customerRepository;
+        }
 
         public ActionResult TransferMoney()
         {
@@ -18,18 +31,34 @@
         }
 
         [HttpPost]
+        [Transactional]
         public ActionResult TransferMoney(TransferMoneyCommand transferMoney)
         {
-            var fromAccountBalance = this.accountRepository.GetBalance(transferMoney.FromAccountId);
-            var toAccountBalance = this.accountRepository.GetBalance(transferMoney.ToAccountId);
-            
-            if (fromAccountBalance < transferMoney.Amount)
+            var fromAccount = accounts.Get(transferMoney.FromAccountId);
+            var toAccount = accounts.Get(transferMoney.ToAccountId);
+
+            if (fromAccount.CurrentBalance < transferMoney.Amount)
                 throw new InsufficientFundsException();
 
-            this.accountRepository.UpdateBalance(transferMoney.FromAccountId,fromAccountBalance - transferMoney.Amount);
-            this.accountRepository.UpdateBalance(transferMoney.ToAccountId, toAccountBalance + transferMoney.Amount);
-            
+            fromAccount.CurrentBalance = fromAccount.CurrentBalance - transferMoney.Amount;
+            toAccount.CurrentBalance = toAccount.CurrentBalance + transferMoney.Amount;
+
             return this.RedirectToAction("TransferMoney");
         }
     }
+
+    public class TransactionalAttribute : ActionFilterAttribute
+    {
+        public override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            var appDbContext = ObjectFactory.GetInstance<AppDbContext>();
+            appDbContext.SaveChanges();
+        }
+    }
+
+    public interface ICustomerRepository
+    {
+    }
+
+
 }

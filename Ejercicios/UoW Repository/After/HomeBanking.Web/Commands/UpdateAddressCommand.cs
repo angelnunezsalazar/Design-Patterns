@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class UpdateAddressCommand
+    public class UpdateAddressCommand:ICommand
     {
         public int CustomerId { get; set; }
 

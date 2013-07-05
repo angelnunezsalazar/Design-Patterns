@@ -5,7 +5,13 @@
     using System.Web.Mvc;
     using System.Web.Routing;
 
+    using CodeFirstContextRequest.Web.Dependencies;
+
+    using HomeBanking.Web.Controllers;
     using HomeBanking.Web.DataAccess;
+    using HomeBanking.Web.DataAccess.Repositories;
+
+    using StructureMap;
 
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
@@ -38,6 +44,20 @@
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
             Database.SetInitializer(new DataInitializer());
+
+            ObjectFactory.Initialize(x =>
+                {
+                    x.For<IAccountRepository>().Use<AccountRepository>();
+                    x.For<AppDbContext>().Use<AppDbContext>();
+
+                   x.Scan(y =>
+                    {
+                        y.AssemblyContainingType<AccountRepository>();
+                        y.ConnectImplementationsToTypesClosing(typeof(IHandler<>));
+                    });
+                });
+
+            DependencyResolver.SetResolver(new StructureMapDependencyResolver(ObjectFactory.Container));
         }
     }
 }

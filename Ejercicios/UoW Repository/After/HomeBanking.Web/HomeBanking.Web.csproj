@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -100,6 +103,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\OperationsController.cs" />
     <Compile Include="Commands\TransferMoneyCommand.cs" />
+    <Compile Include="Infraestructure\StructuremapDependencyResolver.cs" />
     <Compile Include="Models\Exceptions\InsufficientFundsException.cs" />
     <Compile Include="DataAccess\AppDbContext.cs" />
     <Compile Include="DataAccess\DataInitializer.cs" />

@@ -1,12 +1,15 @@
 ﻿namespace HomeBanking.Web.Controllers
 {
+    using System;
     using System.ComponentModel;
     using System.Web.Mvc;
 
     using HomeBanking.Web.Commands;
     using HomeBanking.Web.DataAccess;
 
-    public class CustomerController : Controller
+    using StructureMap;
+
+    public class CustomerController : BaseController
     {
         public ActionResult UpdateEmail([DefaultValue(1)]int customerId)
         {
@@ -16,16 +19,9 @@
         }
 
         [HttpPost]
-        public ActionResult UpdateEmail(UpdateEmailCommand updateInformationCommand)
+        public ActionResult UpdateEmail(UpdateEmailCommand updateEmailCommand)
         {
-            if (!ModelState.IsValid) 
-                return this.View();
-
-            var context = new AppDbContext();
-            var customerToUpdate = context.Customers.Find(updateInformationCommand.CustomerId);
-            customerToUpdate.Email = updateInformationCommand.Email;
-            context.SaveChanges();
-            return RedirectToAction("UpdateEmail");
+            return this.ExecuteCommand(updateEmailCommand, () => this.RedirectToAction("UpdateEmail"));
         }
 
         public ActionResult UpdateAddress([DefaultValue(1)]int customerId)
@@ -38,14 +34,57 @@
         [HttpPost]
         public ActionResult UpdateAddress(UpdateAddressCommand updateAddressCommand)
         {
-            if (!ModelState.IsValid)
-                return this.View();
+            return this.ExecuteCommand(updateAddressCommand, () => this.RedirectToAction("UpdateAddress"));
+        }
 
+    }
+
+    public class BaseController : Controller
+    {
+        public ActionResult ExecuteCommand(ICommand command, Func<ActionResult> whenBusinessLogicIsOk)
+        {
+            if (ModelState.IsValid)
+                return this.View();
+            try
+            {
+                var handlerType = typeof(IHandler<>).MakeGenericType(command.GetType());
+                dynamic handler = ObjectFactory.GetInstance(handlerType);
+                handler.Execute(command);
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("", e.Message);
+                return whenBusinessLogicIsOk();
+            }
+
+            return whenBusinessLogicIsOk();
+        }
+    }
+
+    public interface IHandler<TCommand> where TCommand : ICommand
+    {
+        void Execute(TCommand command);
+    }
+
+    public class UpdateAddressHandler : IHandler<UpdateAddressCommand>
+    {
+        public void Execute(UpdateAddressCommand command)
+        {
             var context = new AppDbContext();
-            var customerToUpdate = context.Customers.Find(updateAddressCommand.CustomerId);
-            customerToUpdate.Email = updateAddressCommand.Address;
+            var customerToUpdate = context.Customers.Find(command.CustomerId);
+            customerToUpdate.Address = command.Address;
             context.SaveChanges();
-            return RedirectToAction("UpdateAddress");
+        }
+    }
+
+    public class UpdateMailHandler : IHandler<UpdateEmailCommand>
+    {
+        public void Execute(UpdateEmailCommand command)
+        {
+            var context = new AppDbContext();
+            var customerToUpdate = context.Customers.Find(command.CustomerId);
+            customerToUpdate.Email = command.Email;
+            context.SaveChanges();
         }
     }
 }

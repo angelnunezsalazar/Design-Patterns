@@ -4,26 +4,43 @@
 
     using HomeBanking.Web.Models;
 
-    public class AccountRepository
+    public interface IAccountRepository
     {
-        public decimal GetBalance(int accountId)
+        Account Get(int id);
+    }
+
+    public class AccountRepository : IAccountRepository
+    {
+        private readonly AppDbContext context;
+
+        public AccountRepository(AppDbContext context)
         {
-            var context = new AppDbContext();
-            return context.Accounts.Where(x => x.Id == accountId)
-                          .Select(x => x.CurrentBalance).Single();
+            this.context = context;
         }
 
-        public void UpdateBalance(int accountId, decimal newBalance)
+        public Account Get(int id)
         {
-            var account = new Account
-            {
-                Id = accountId,
-                CurrentBalance = newBalance
-            };
-            var context = new AppDbContext();
-            context.Accounts.Attach(account);
-            context.Entry(account).Property(u => u.CurrentBalance).IsModified = true;
-            context.SaveChanges();
+            return context.Accounts.Find(id);
         }
+
+        //public decimal GetBalance(int accountId)
+        //{
+        //    var context = new AppDbContext();
+        //    return context.Accounts.Where(x => x.Id == accountId)
+        //                  .Select(x => x.CurrentBalance).Single();
+        //}
+
+        //public void UpdateBalance(int accountId, decimal newBalance)
+        //{
+        //    var account = new Account
+        //    {
+        //        Id = accountId,
+        //        CurrentBalance = newBalance
+        //    };
+        //    var context = new AppDbContext();
+        //    context.Accounts.Attach(account);
+        //    context.Entry(account).Property(u => u.CurrentBalance).IsModified = true;
+        //    context.SaveChanges();
+        //}
     }
 }
