@@ -1,0 +1,32 @@
+EJERCICIOS
+--------------
+Hacer los ejercicios en JAva
+
+CARATULA
+--------
+(Importante) HAcer carátulas: Code Smells and Refactoring, Design Patterns, TDD
+
+SLIDES
+-------
+Verificar que sea para Java y NET
+Cambiar color Slides (Opcional)
+
+TD + Code Smells
+-------------------------
+CONEXION: Slides con caritas alegres y tristes.
+CONCRECIÓN: Online Store en Java
+
+REFACTORING PATTERNS
+--------------------
+Conexiön: Falta, buscar en industrial logic, 
+xq es importante los patterns o que problemas aparecen si no se usan.
+(opcional) Separar los ejercicios de Narrowed y Parallel
+
+DESIGN PATTERNS
+---------------
+Crear Conexión
+Ver como explicar más patrones
+Enterprise DP?
+Pensar en el ejercicio de Categorías?
+
+
