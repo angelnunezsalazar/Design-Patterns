@@ -22,8 +22,8 @@ public class DisplayTests {
 		WeatherData weatherData = new WeatherData();
 		weatherData.setMeasurements(80, 65, 30.4f);
 
-//		assertTrue(this.outContent.toString().contains(
-//				"Current conditions: 80F degrees and 65% humidity"));
+		assertTrue(this.outContent.toString().contains(
+				"Current conditions: 80.0F degrees and 65.0% humidity"));
 		assertTrue(this.outContent.toString().contains("Improving weather on the way!"));
 		assertTrue(this.outContent.toString().contains("Avg/Max/Min temperature = 80.0F/80.0F/80.0F"));
 	}
@@ -33,8 +33,8 @@ public class DisplayTests {
 		WeatherData weatherData = new WeatherData();
 		weatherData.setMeasurements(82, 70, 29.2f);
 
-//		assertTrue(this.outContent.toString().contains(
-//				"Current conditions: 82F degrees and 70% humidity"));
+		assertTrue(this.outContent.toString().contains(
+				"Current conditions: 82.0F degrees and 70.0% humidity"));
 		assertTrue(this.outContent.toString().contains(
 				"Watch out for cooler, rainy weather"));
 		assertTrue(this.outContent.toString().contains(
