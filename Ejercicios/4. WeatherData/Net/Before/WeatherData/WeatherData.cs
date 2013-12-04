@@ -1,4 +1,4 @@
-namespace Observer.WeatherData
+namespace WeatherData
 {
     public class WeatherData
     {
@@ -12,9 +12,9 @@ namespace Observer.WeatherData
 
         public void MeasurementsChanged()
         {
-            this.currentConditionsDisplay.Update(this.temperature, this.humidity, this.pressure);
-            this.forecastDisplay.Update(this.temperature, this.humidity, this.pressure);
-            this.statisticsDisplay.Update(this.temperature, this.humidity, this.pressure);
+            currentConditionsDisplay.Update(temperature, humidity, pressure);
+            forecastDisplay.Update(temperature, humidity, pressure);
+            statisticsDisplay.Update(temperature, humidity, pressure);
         }
 
         public void SetMeasurements(float temperature, float humidity, float pressure)
@@ -22,7 +22,7 @@ namespace Observer.WeatherData
             this.temperature = temperature;
             this.humidity = humidity;
             this.pressure = pressure;
-            this.MeasurementsChanged();
+            MeasurementsChanged();
         }
     }
 }

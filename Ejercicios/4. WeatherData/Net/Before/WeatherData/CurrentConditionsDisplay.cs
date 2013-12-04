@@ -1,8 +1,5 @@
-namespace Observer.WeatherData
+namespace WeatherData
 {
-    /// <summary>
-    /// Summary description for CurrentConditionsDisplay.
-    /// </summary>
     public class CurrentConditionsDisplay : IDisplayElement
     {
         private float temperature;

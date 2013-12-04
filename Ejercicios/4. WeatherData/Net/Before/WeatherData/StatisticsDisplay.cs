@@ -1,4 +1,4 @@
-namespace Observer.WeatherData
+namespace WeatherData
 {
     public class StatisticsDisplay : IDisplayElement
     {

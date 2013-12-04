@@ -1,4 +1,4 @@
-namespace Strategy.Duck
+namespace Duck
 {
     public abstract class Duck
     {
@@ -8,12 +8,12 @@ namespace Strategy.Duck
 
         public abstract object Display();
 
-        public object PerformFly()
+        public object Fly()
         {
             return this.FlyBehavoir.Fly();
         }
 
-        public object PerformQuack()
+        public object Quack()
         {
             return this.QuackBehavior.Quacking();
         }

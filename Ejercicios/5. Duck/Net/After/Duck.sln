@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategy.Duck", "Strategy.Duck\Strategy.Duck.csproj", "{5EF36F2C-D81F-423D-8AF9-E464A617D151}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duck", "Duck\Duck.csproj", "{5EF36F2C-D81F-423D-8AF9-E464A617D151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duck.Tests", "Duck.Tests\Duck.Tests.csproj", "{4D871B30-C234-470C-ACEB-FE0695F51391}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{5EF36F2C-D81F-423D-8AF9-E464A617D151}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EF36F2C-D81F-423D-8AF9-E464A617D151}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EF36F2C-D81F-423D-8AF9-E464A617D151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D871B30-C234-470C-ACEB-FE0695F51391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D871B30-C234-470C-ACEB-FE0695F51391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D871B30-C234-470C-ACEB-FE0695F51391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D871B30-C234-470C-ACEB-FE0695F51391}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,7 @@
-namespace Observer.WeatherData
-{
-    using System.Text;
+using System.Text;
 
+namespace WeatherData
+{
     public class ForcastDisplay : IDisplayElement
     {
         private float currentPressure = 29.92f;

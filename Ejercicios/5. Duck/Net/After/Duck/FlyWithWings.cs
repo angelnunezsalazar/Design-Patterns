@@ -1,4 +1,4 @@
-namespace Strategy.Duck
+namespace Duck
 {
     public class FlyWithWings : IFlyBehavior
     {

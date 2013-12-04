@@ -1,4 +1,4 @@
-namespace Observer.WeatherData
+namespace WeatherData
 {
     /// <summary>
     /// Summary description for IDisplayElement.
