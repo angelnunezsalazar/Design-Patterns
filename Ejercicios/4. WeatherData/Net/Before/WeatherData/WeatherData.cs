@@ -7,7 +7,7 @@ namespace WeatherData
         private float pressure;
 
         private CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay();
-        private ForcastDisplay forecastDisplay = new ForcastDisplay();
+        private ForecastDisplay forecastDisplay = new ForecastDisplay();
         private StatisticsDisplay statisticsDisplay = new StatisticsDisplay();
 
         public void MeasurementsChanged()

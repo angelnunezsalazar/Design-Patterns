@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherData", "WeatherData\WeatherData.csproj", "{C4EAF739-BB94-4F5B-93C0-61FFCFE0BA8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherData.Tests", "WeatherData.Tests\WeatherData.Tests.csproj", "{CCCC4BC5-3B9E-4EB6-9E17-13551A12620F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{C4EAF739-BB94-4F5B-93C0-61FFCFE0BA8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4EAF739-BB94-4F5B-93C0-61FFCFE0BA8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4EAF739-BB94-4F5B-93C0-61FFCFE0BA8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCCC4BC5-3B9E-4EB6-9E17-13551A12620F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCCC4BC5-3B9E-4EB6-9E17-13551A12620F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCCC4BC5-3B9E-4EB6-9E17-13551A12620F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCCC4BC5-3B9E-4EB6-9E17-13551A12620F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

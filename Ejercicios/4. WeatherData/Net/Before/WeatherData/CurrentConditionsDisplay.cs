@@ -1,3 +1,5 @@
+using System;
+
 namespace WeatherData
 {
     public class CurrentConditionsDisplay : IDisplayElement
@@ -13,12 +15,12 @@ namespace WeatherData
             this.temperature = temperature;
             this.humidity = humidity;
             this.pressure = pressure;
+            Display();
         }
 
-        public object Display()
+        public void Display()
         {
-            return "Current conditions: " + this.temperature +
-                   "F degrees and " + this.humidity + "% humidity";
+            Console.WriteLine("Current conditions: " + this.temperature + "F degrees and " + this.humidity + "% humidity");
         }
     }
 }

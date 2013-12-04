@@ -1,3 +1,5 @@
+using System;
+
 namespace WeatherData
 {
     public class StatisticsDisplay : IDisplayElement
@@ -15,29 +17,22 @@ namespace WeatherData
             this.temperatureSum += temperature;
             this.numReadings++;
 
-            if (temperature > this.maxTemp)
+            if (temperature > maxTemp)
             {
                 this.maxTemp = temperature;
             }
 
-            if (temperature < this.minTemp)
+            if (temperature < minTemp)
             {
                 this.minTemp = temperature;
             }
+            Display();
         }
 
-        public object Display()
+        public void Display()
         {
-            return "Avg/Max/Min temperature = " + RoundFloatToString(this.temperatureSum / this.numReadings) +
-                   "F/" + this.maxTemp + "F/" + this.minTemp + "F";
-        }
-
-        public static string RoundFloatToString(float floatToRound)
-        {
-            System.Globalization.CultureInfo cultureInfo = new System.Globalization.CultureInfo("en-US");
-            cultureInfo.NumberFormat.CurrencyDecimalDigits = 2;
-            cultureInfo.NumberFormat.CurrencyDecimalSeparator = ".";
-            return floatToRound.ToString("F", cultureInfo);
+            Console.WriteLine("Avg/Max/Min temperature = " + (this.temperatureSum / this.numReadings).ToString("F") +
+                   "F/" + this.maxTemp + "F/" + this.minTemp + "F");
         }
     }
 }

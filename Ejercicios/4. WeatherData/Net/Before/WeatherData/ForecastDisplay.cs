@@ -1,8 +1,9 @@
+using System;
 using System.Text;
 
 namespace WeatherData
 {
-    public class ForcastDisplay : IDisplayElement
+    public class ForecastDisplay : IDisplayElement
     {
         private float currentPressure = 29.92f;
 
@@ -12,9 +13,10 @@ namespace WeatherData
         {
             this.lastPressure = this.currentPressure;
             this.currentPressure = pressure;
+            Display();
         }
 
-        public object Display()
+        public void Display()
         {
             StringBuilder sb = new StringBuilder();
 
@@ -32,7 +34,7 @@ namespace WeatherData
             {
                 sb.Append("Watch out for cooler, rainy weather");
             }
-            return sb.ToString();
+            Console.WriteLine(sb.ToString());
         }
     }
 }
